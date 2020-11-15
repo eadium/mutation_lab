@@ -2,22 +2,23 @@ all: ray mm mp mt
 
 ray: 
 	cosmic-ray init config.toml ray.sqlite; \
-cosmic-ray baseline --report ray.sqlite || exit 1; \
+cosmic-ray baseline --report ray.sqlite || echo 'ray FAILED'; \
 cosmic-ray exec ray.sqlite; \
 cr-report ray.sqlite; \
 cr-html ray.sqlite > ray.html
 
 mm:
-	mutmut run
+	mutmut run || echo 'mutmut FAILED'; \
+	mutmut results
 
 mp:
 	mut.py --target ./fsm --unit-test ./test_fsm.py -e --report-html mut_py.html
 
 mt:
-	mutatest -s fsm/ -t "python3 -m unittest"
+	mutatest -s fsm/ -t "python3 -m unittest" -m f -n 100
 
 test:
-	python3 test_fsm.py
+	python3 -m unittest
 
 clean:
 	rm -r .mutmut-cache *.sqlite mut_py.html/
