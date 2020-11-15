@@ -21,7 +21,7 @@ class TestFSM(unittest.TestCase):
     tests = []
     @classmethod
     def setUpClass(self):
-        self.tests = parseTests('../tests')
+        self.tests = parseTests('/Users/artemandruhov/src/formal/lab1/tests')
         
     def test_fsm_correct(self):
         f = fsm.FSM()
@@ -38,6 +38,6 @@ class TestFSM(unittest.TestCase):
             for case in test:
                 self.assertEqual(f.process(case[0]), bool(case[1]))
             
-# if __name__ == '__main__':
-#     # tests = parseTests('../tests')
-#     unittest.main()
+if __name__ == '__main__':
+    # tests = parseTests('../tests')
+    unittest.main()

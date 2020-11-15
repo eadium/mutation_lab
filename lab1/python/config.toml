@@ -1,0 +1,14 @@
+# config.toml
+[cosmic-ray]
+module-path = "fsm/"
+python-version = ""
+timeout = 10
+exclude-modules = []
+test-command = "python3 -m unittest test_fsm.py"
+
+[cosmic-ray.execution-engine]
+name = "local"
+
+[cosmic-ray.cloning]
+method = "copy"
+commands = []
