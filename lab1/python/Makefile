@@ -2,10 +2,10 @@ all: ray mm mp mt
 
 ray: 
 	cosmic-ray init config.toml ray.sqlite; \
-cosmic-ray baseline --report ray.sqlite || echo 'ray FAILED'; \
-cosmic-ray exec ray.sqlite; \
-cr-report ray.sqlite; \
-cr-html ray.sqlite > ray.html
+	cosmic-ray baseline --report ray.sqlite || echo 'ray FAILED'; \
+	cosmic-ray exec ray.sqlite; \
+	cr-report ray.sqlite; \
+	cr-html ray.sqlite > ray.html
 
 mm:
 	mutmut run || echo 'mutmut FAILED'; \
