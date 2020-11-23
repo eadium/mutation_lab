@@ -34,6 +34,8 @@ class TestFSM(unittest.TestCase):
         f = fsm.FSM()
         for test in self.tests:
             print('Running test', test)
-            f.d1 = False; f.d2 = False
             for case in test:
                 self.assertEqual(f.process(case[0]), bool(case[1]))
+            f.d1 = False; f.d2 = False
+
+# unittest.main()

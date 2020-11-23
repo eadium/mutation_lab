@@ -1,5 +1,8 @@
 all: ray mm mp mt
 
+custom:
+	./test.sh
+
 ray: 
 	cosmic-ray init config.toml ray.sqlite; \
 	cosmic-ray baseline --report ray.sqlite || echo 'ray FAILED'; \
